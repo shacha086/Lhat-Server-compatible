@@ -39,14 +39,8 @@ class Server:
         """
         初始化服务器
         """
-        if not os.path.exists('records'):
-            os.mkdir('records')
-        if not os.path.exists('logs'):
-            os.mkdir('logs')
-        if not os.path.exists('sql'):
-            os.mkdir('sql')
-        if not os.path.exists('files'):
-            os.mkdir('files')
+        check_dir()
+       
         print(f'Lhat Chatting Server Version {self.VERSION} using AGPL v3.0 License')
         self.logable = settings.log
         self.recordable = settings.record
@@ -736,7 +730,13 @@ class Server:
                     f.write(message + '\n')
                 elif isinstance(message, bytes):
                     f.write(message.decode('utf-8') + '\n')
-
+    
+    ＠staticmethod
+    def check_dir():
+        dir_check_list = ['records', 'logs', 'sql', 'files']
+        for dir_name in dir_check_list:
+            if not os.path.exists(dir_name):
+                os.mkdir(dir_name)
 
 if __name__ == '__main__':
     server = Server()  # 创建一个服务器对象

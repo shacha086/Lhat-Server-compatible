@@ -733,6 +733,9 @@ class Server:
     
     ＠staticmethod
     def check_dir():
+        """
+        初始化软件所需文件夹
+        """
         dir_check_list = ['records', 'logs', 'sql', 'files']
         for dir_name in dir_check_list:
             if not os.path.exists(dir_name):

@@ -5,10 +5,8 @@ import types
 import threading
 import sqlite3
 import hashlib
-import json
-import time
 
-from server_operations import pack, unpack
+from server_operations import *
 from defines import settings
 from defines.User import User
 
@@ -212,7 +210,7 @@ class Server:
                 """
                 # 显然遍历没下标好
                 if recv_data[1] in self.user_connections:
-                    sock.send(message.encode(encoding="utf_8"))
+                    sock.send(message)
                     self.user_connections[recv_data[1]].getSocket().send(message)
                 else:
                     sock.send(pack("私聊目标用户不存在。", "Server", "", "TEXT_MESSAGE"))

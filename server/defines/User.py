@@ -1,4 +1,4 @@
-from defines.settings import default_room
+from settings import default_room
 import socket
 
 

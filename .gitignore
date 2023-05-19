@@ -8,7 +8,6 @@ __pycache__/
 打包用/
 *.bat
 *.fbp
-*.db
 
 # C extensions
 *.so
@@ -134,5 +133,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-lhat_chatting_record.txt
